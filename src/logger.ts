@@ -86,5 +86,5 @@ export function error(text : string){
 }
 
 // Initialisation
-initLogs()
+// initLogs()
 
