@@ -8,7 +8,7 @@ const LOG_ERROR = 2
 // Set current FilePath
 let logsPath = ""
 
-function initLogs() {
+export function initLogs() {
     // Set logs path
     const date = new Date()
     logsPath = `logs/${date.toDateString() + "_" + date.getHours()+ ":" + date.getMinutes() + ":" + date.getSeconds()}.txt`

@@ -30,12 +30,10 @@ log.error(text)
 log.interaction(interact)
 ```
 
-[//]: # ()
-[//]: # ( - You can optionally prepare the logs files and directory when you want with:)
 
-[//]: # ()
-[//]: # (```ts)
+ - You can optionally prepare the logs files and directory when you want with:
 
-[//]: # (log.initLogs&#40;&#41;)
 
-[//]: # (```)
+```ts
+log.initLogs()
+```
