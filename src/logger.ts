@@ -8,7 +8,7 @@ const LOG_ERROR = 2
 // Set current FilePath
 let logsPath = ""
 
-export function initLogs() {
+function initLogs() {
     // Set logs path
     const date = new Date()
     logsPath = `logs/${date.toDateString() + "_" + date.getHours()+ ":" + date.getMinutes() + ":" + date.getSeconds()}.txt`
@@ -85,15 +85,6 @@ export function error(text : string){
     logging(text, LOG_ERROR)
 }
 
-
-
 // Initialisation
 initLogs()
 
-// Set interaction logger
-module.exports = {
-    initLogs,
-    interaction,
-    info,
-    error
-}
