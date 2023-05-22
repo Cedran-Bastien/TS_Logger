@@ -8,7 +8,7 @@ const LOG_ERROR = 2
 // Set current FilePath
 let logsPath = ""
 
-function initLogs() {
+export function initLogs() {
     // Set logs path
     const date = new Date()
     logsPath = `logs/${date.toDateString() + "_" + date.getHours()+ ":" + date.getMinutes() + ":" + date.getSeconds()}.txt`
@@ -71,17 +71,17 @@ function logging(currentLog : string, goal : number) {
     console.log(log)
 }
 
-function interaction(interaction : any){
+export function interaction(interaction : any){
     logging(interaction.member.guild.name + " - "
         + interaction.member.user.username + " - "
         + interaction.commandName, LOG_INFO)
 }
 
-function info(obj : any){
+export function info(obj : any){
     logging(JSON.stringify(obj) , LOG_INFO)
 }
 
-function error(text : string){
+export function error(text : string){
     logging(text, LOG_ERROR)
 }
 
