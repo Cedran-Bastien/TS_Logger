@@ -22,10 +22,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.error = exports.info = exports.interaction = exports.initLogs = void 0;
 const fs = __importStar(require("fs"));
-const colors = __importStar(require("colors"));
+const safe_1 = __importDefault(require("colors/safe"));
 // Constant
 const LOG_INFO = 1;
 const LOG_ERROR = 2;
@@ -66,10 +69,10 @@ function logging(currentLog, goal) {
         + currentLog;
     // Set color
     if (goal === LOG_INFO) {
-        log = colors.blue(log);
+        log = safe_1.default.blue(log);
     }
     else if (goal == LOG_ERROR) {
-        log = colors.red(log);
+        log = safe_1.default.red(log);
     }
     // Put log in the file
     fs.appendFile(logsPath, log + '\n', (err) => {
