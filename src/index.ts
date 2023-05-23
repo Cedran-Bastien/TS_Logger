@@ -1,5 +1,5 @@
 import * as  fs from "fs";
-import * as colors from 'colors/safe';
+import * as colors from 'colors';
 
 // Constant
 const LOG_INFO = 1
