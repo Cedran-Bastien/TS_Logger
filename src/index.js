@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.error = exports.info = exports.interaction = exports.initLogs = void 0;
 const fs = __importStar(require("fs"));
-const colors = __importStar(require("colors/safe"));
+const colors = __importStar(require("colors"));
 // Constant
 const LOG_INFO = 1;
 const LOG_ERROR = 2;
