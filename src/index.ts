@@ -2,6 +2,10 @@ import * as  fs from "fs";
 import colors from 'colors/safe';
 
 // Constant
+enum logType {
+    LOG_INFO = 1,
+    LOG_ERROR = 2
+}
 const LOG_INFO = 1
 const LOG_ERROR = 2
 
@@ -40,7 +44,7 @@ export function initLogs() {
 
 }
 
-function logging(currentLog : string, goal : number) {
+function logging(currentLog : string, goal : logType) {
     const date = new Date()
     let log  = date.getHours() + ":"
         + date.getMinutes() + ":"
@@ -48,9 +52,9 @@ function logging(currentLog : string, goal : number) {
         + currentLog
 
     // Set color
-    if (goal === LOG_INFO){
+    if (goal === logType.LOG_INFO){
         log = colors.blue(log)
-    }else if (goal == LOG_ERROR){
+    }else if (goal == logType.LOG_ERROR){
         log = colors.red(log)
     }
 
@@ -78,11 +82,11 @@ export function interaction(interaction : any){
 }
 
 export function info(obj : any){
-    logging(JSON.stringify(obj) , LOG_INFO)
+    logging(JSON.stringify(obj) , logType.LOG_INFO)
 }
 
 export function error(text : string){
-    logging(text, LOG_ERROR)
+    logging(text, logType.LOG_ERROR)
 }
 
 // Initialisation
