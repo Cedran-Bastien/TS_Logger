@@ -1,5 +1,6 @@
 import * as  fs from "fs";
 import colors from 'colors/safe';
+import {stringify} from "querystring";
 
 // Constant
 const LOG_INFO = 1
@@ -81,8 +82,8 @@ export function info(obj : any){
     logging(JSON.stringify(obj) , LOG_INFO)
 }
 
-export function error(text : string){
-    logging(text, LOG_ERROR)
+export function error(obj : any){
+    logging(JSON.stringify(obj), LOG_ERROR)
 }
 
 // Initialisation
