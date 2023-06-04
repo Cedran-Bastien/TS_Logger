@@ -3,8 +3,11 @@ import colors from 'colors/safe';
 import {stringify} from "querystring";
 
 // Constant
-const LOG_INFO = 1
-const LOG_ERROR = 2
+enum logType {
+    LOG_INFO = 1,
+    LOG_ERROR = 2
+}
+
 
 // Set current FilePath
 let logsPath = ""
@@ -41,7 +44,7 @@ export function initLogs() {
 
 }
 
-function logging(currentLog : string, goal : number) {
+function logging(currentLog : string, goal : logType) {
     const date = new Date()
     let log  = date.getHours() + ":"
         + date.getMinutes() + ":"
@@ -49,9 +52,9 @@ function logging(currentLog : string, goal : number) {
         + currentLog
 
     // Set color
-    if (goal === LOG_INFO){
+    if (goal === logType.LOG_INFO){
         log = colors.blue(log)
-    }else if (goal == LOG_ERROR){
+    }else if (goal == logType.LOG_ERROR){
         log = colors.red(log)
     }
 
@@ -75,15 +78,15 @@ function logging(currentLog : string, goal : number) {
 export function interaction(interaction : any){
     logging(interaction.member.guild.name + " - "
         + interaction.member.user.username + " - "
-        + interaction.commandName, LOG_INFO)
+        + interaction.commandName, logType.LOG_INFO)
 }
 
 export function info(obj : any){
-    logging(JSON.stringify(obj) , LOG_INFO)
+    logging(JSON.stringify(obj) , logType.LOG_INFO)
 }
 
 export function error(obj : any){
-    logging(JSON.stringify(obj), LOG_ERROR)
+    logging(JSON.stringify(obj), logType.LOG_ERROR)
 }
 
 // Initialisation
